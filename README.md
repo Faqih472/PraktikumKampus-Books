@@ -10,8 +10,9 @@ This project is a starting point for a Flutter application.
 
 Soal 1
 Tambahkan nama panggilan Anda pada title app sebagai identitas hasil pekerjaan Anda.
+![Uploading Animation.gif…]()
 
-https://github.com/user-attachments/assets/f9db072b-50bd-4b25-98f5-f965b629bb94
+
 
 
 
