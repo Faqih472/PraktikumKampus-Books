@@ -26,7 +26,7 @@ SOAL 3
 
 JAWAB:
 1.  Kode tersebut memotong 450 karakter pertama dari hasil respons API menggunakan substring(0, 450) dan menampilkannya. Jika terjadi error (misalnya respons terlalu pendek atau gagal ambil data), catchError akan menangkapnya dan menampilkan pesan “An error occurred”.
-2.  ![S3](https://github.com/user-attachments/assets/8a1da883-4f7f-4ad9-8dce-b903d29dde10)
+2.  ![S33](https://github.com/user-attachments/assets/0dd9ac70-396d-4001-803e-ab013184857a)
 
 
 
