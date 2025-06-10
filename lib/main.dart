@@ -33,18 +33,38 @@ class FuturePage extends StatefulWidget {
 
 class _FuturePageState extends State<FuturePage> {
   String result = '';
+
+  // Method dari Langkah 4, diubah sesuai Soal 2 dengan ID baru
+  Future<http.Response> getData() async {
+    const authority = 'www.googleapis.com';
+    // ID BUKU BARU DARI ANDA ("Bumi" oleh Tere Liye)
+    const path = '/books/v1/volumes/LKLbDwAAQBAJ';
+    Uri url = Uri.https(authority, path);
+    return http.get(url);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Soal 1 - Faqih'),
+        title: const Text('SOAL 3 - FAQIH'),
       ),
       body: Center(
         child: Column(children: [
           const Spacer(),
           ElevatedButton(
             child: const Text('GO!'),
-            onPressed: () {},
+            // Logika dari Langkah 5
+            onPressed: () {
+              setState(() {});
+              getData().then((value) {
+                result = value.body.toString().substring(0, 450);
+                setState(() {});
+              }).catchError((_) {
+                result = 'An error occurred';
+                setState(() {});
+              });
+            },
           ),
           const Spacer(),
           Text(result),
@@ -56,4 +76,3 @@ class _FuturePageState extends State<FuturePage> {
     );
   }
 }
-
