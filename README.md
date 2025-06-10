@@ -26,7 +26,19 @@ SOAL 3
 
 JAWAB:
 1.  Kode tersebut memotong 450 karakter pertama dari hasil respons API menggunakan substring(0, 450) dan menampilkannya. Jika terjadi error (misalnya respons terlalu pendek atau gagal ambil data), catchError akan menangkapnya dan menampilkan pesan “An error occurred”.
-2.  ![S33](https://github.com/user-attachments/assets/0dd9ac70-396d-4001-803e-ab013184857a)
+2.
+![S33](https://github.com/user-attachments/assets/0dd9ac70-396d-4001-803e-ab013184857a)
+
+
+SOAL 4
+Langkah 1:
+Membuat tiga fungsi async (returnOneAsync, returnTwoAsync, returnThreeAsync) yang masing-masing delay 3 detik menggunakan await Future.delayed(...), lalu mengembalikan angka 1, 2, dan 3.
+
+Langkah 2:
+Menjalankan ketiga fungsi tersebut secara berurutan dalam fungsi count(), menggunakan await untuk menunggu tiap hasil, menjumlahkan hasilnya (total = 6), dan memanggil setState() untuk menampilkan ke UI.
+
+🕒 Total waktu proses: 9 detik (3 + 3 + 3).
+![s4](https://github.com/user-attachments/assets/768dbb36-2ef4-4f3a-af3a-db9ec159d8b0)
 
 
 
