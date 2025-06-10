@@ -26,7 +26,9 @@ SOAL 3
 
 JAWAB:
 1.  Kode tersebut memotong 450 karakter pertama dari hasil respons API menggunakan substring(0, 450) dan menampilkannya. Jika terjadi error (misalnya respons terlalu pendek atau gagal ambil data), catchError akan menangkapnya dan menampilkan pesan “An error occurred”.
-2.
+
+2.   
+
 ![S33](https://github.com/user-attachments/assets/0dd9ac70-396d-4001-803e-ab013184857a)
 
 
@@ -41,6 +43,20 @@ Menjalankan ketiga fungsi tersebut secara berurutan dalam fungsi count(), menggu
 ![s4](https://github.com/user-attachments/assets/768dbb36-2ef4-4f3a-af3a-db9ec159d8b0)
 
 
+SOAL 5
+1.  Kode Completer (getNumber & calculate):
+Fungsi getNumber() membuat sebuah "janji" (Future) dan langsung mengembalikannya.
+Fungsi calculate() berjalan di latar belakang dan menunggu selama 5 detik.
+Setelah 5 detik, calculate() menepati janji tersebut dengan memberikan hasil 42.
+Intinya, ini adalah cara manual untuk mengontrol kapan sebuah Future selesai dan apa hasilnya.
+
+2.  Kode onPressed:
+Saat tombol ditekan, panggil fungsi getNumber() yang mengembalikan "janji".
+Gunakan .then() untuk menunggu janji tersebut ditepati.
+Ketika janji ditepati (setelah 5 detik), ambil hasilnya (42) dan tampilkan di layar menggunakan setState.
+
+
+![s5](https://github.com/user-attachments/assets/a08cc6b3-6052-4f2a-aa29-4c9bcb31ce86)
 
 
 
