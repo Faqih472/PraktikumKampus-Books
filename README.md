@@ -1,62 +1,97 @@
-# books
+📚 Flutter Asynchronous Programming
+Repositori ini berisi tugas-tugas praktikum Pemrograman Asynchronous pada Flutter, berdasarkan materi perkuliahan Aplikasi Mobile Lanjutan.
 
-A new Flutter project.
+🚀 Getting Started
+Proyek ini merupakan titik awal untuk memahami konsep asynchronous programming dalam Flutter. Setiap soal berisi penjelasan, cuplikan kode, serta hasil output berupa screenshot atau GIF.
 
-## Getting Started
+📝 Daftar Soal
 
-This project is a starting point for a Flutter application.
 
-## SOAL
 
-SOAL 1
-Tambahkan nama panggilan Anda pada title app sebagai identitas hasil pekerjaan Anda.
+✅ Soal 1
+Tambahkan nama panggilan Anda pada judul aplikasi sebagai identitas hasil pekerjaan Anda.
+
+📸 Hasil:
 ![Animation](https://github.com/user-attachments/assets/9e0e4eb4-d925-4a6e-99a8-2ef77d743459)
 
 
+✅ Soal 2
+Ambil dan tampilkan data buku dari endpoint berikut:
 
-SOAL 2
+📎 URL:
 https://www.googleapis.com/books/v1/volumes/LKLbDwAAQBAJ
-![Screenshot 2025-06-09 144322](https://github.com/user-attachments/assets/99a33255-0b77-4b5c-8c02-cda0eaaaa495)
+
+📸 Hasil:
+![Screenshot 2025-06-09 144322](https://github.com/user-attachments/assets/78ede47e-05d1-4273-9254-734b064ac76a)
 
 
 
-SOAL 3 
-1. Jelaskan maksud kode langkah 5 tersebut terkait substring dan catchError!
-2. Capture hasil praktikum Anda berupa GIF dan lampirkan di README. Lalu 
+✅ Soal 3
+Kode memotong 450 karakter pertama dari hasil respons API menggunakan substring(0, 450) untuk membatasi tampilan teks. Jika terjadi error (misalnya data terlalu pendek atau gagal ambil data), blok catchError akan menangkap error tersebut dan menampilkan pesan "An error occurred".
 
-JAWAB:
-1.  Kode tersebut memotong 450 karakter pertama dari hasil respons API menggunakan substring(0, 450) dan menampilkannya. Jika terjadi error (misalnya respons terlalu pendek atau gagal ambil data), catchError akan menangkapnya dan menampilkan pesan “An error occurred”.
-
-2.   
-
+Capture hasil praktikum Anda berupa GIF:
+📸 Hasil:
 ![S33](https://github.com/user-attachments/assets/0dd9ac70-396d-4001-803e-ab013184857a)
 
 
-SOAL 4
+
+✅ Soal 4
 Langkah 1:
-Membuat tiga fungsi async (returnOneAsync, returnTwoAsync, returnThreeAsync) yang masing-masing delay 3 detik menggunakan await Future.delayed(...), lalu mengembalikan angka 1, 2, dan 3.
+Buat tiga fungsi async:
+
+returnOneAsync
+
+returnTwoAsync
+
+returnThreeAsync
+Masing-masing memiliki delay 3 detik menggunakan await Future.delayed(...), lalu mengembalikan nilai 1, 2, dan 3.
 
 Langkah 2:
-Menjalankan ketiga fungsi tersebut secara berurutan dalam fungsi count(), menggunakan await untuk menunggu tiap hasil, menjumlahkan hasilnya (total = 6), dan memanggil setState() untuk menampilkan ke UI.
+Jalankan fungsi tersebut secara berurutan dalam fungsi count(). Gunakan await untuk menunggu hasil dari masing-masing fungsi, kemudian jumlahkan total (hasil akhir: 6) dan tampilkan di UI menggunakan setState().
 
-🕒 Total waktu proses: 9 detik (3 + 3 + 3).
+🕒 Total waktu proses: 9 detik (3 + 3 + 3)
+
+📸 Hasil:
 ![s4](https://github.com/user-attachments/assets/768dbb36-2ef4-4f3a-af3a-db9ec159d8b0)
 
 
-SOAL 5
-1.  Kode Completer (getNumber & calculate):
-Fungsi getNumber() membuat sebuah "janji" (Future) dan langsung mengembalikannya.
-Fungsi calculate() berjalan di latar belakang dan menunggu selama 5 detik.
-Setelah 5 detik, calculate() menepati janji tersebut dengan memberikan hasil 42.
-Intinya, ini adalah cara manual untuk mengontrol kapan sebuah Future selesai dan apa hasilnya.
+✅ Soal 5
+1. Kode Completer (getNumber & calculate):
+getNumber() membuat sebuah Future menggunakan Completer, dan langsung mengembalikannya.
 
-2.  Kode onPressed:
-Saat tombol ditekan, panggil fungsi getNumber() yang mengembalikan "janji".
-Gunakan .then() untuk menunggu janji tersebut ditepati.
-Ketika janji ditepati (setelah 5 detik), ambil hasilnya (42) dan tampilkan di layar menggunakan setState.
+calculate() menjalankan proses delay selama 5 detik, lalu menyelesaikan janji tersebut dengan nilai 42.
 
+Teknik ini memberi kontrol manual atas penyelesaian sebuah Future.
 
+2. Kode onPressed:
+Ketika tombol ditekan, getNumber() dipanggil dan mengembalikan Future.
+
+Gunakan .then() untuk menunggu hasilnya.
+
+Setelah 5 detik, hasil (42) didapat dan ditampilkan menggunakan setState().
+
+📸 Hasil:
 ![s5](https://github.com/user-attachments/assets/a08cc6b3-6052-4f2a-aa29-4c9bcb31ce86)
+
+
+
+✅ Soal 6
+Pada soal ini, ditambahkan penanganan error (error handling) ke dalam kode:
+
+1. Kode calculate()
+Menggunakan blok try-catch.
+
+Jika error terjadi, maka ditangani dan Completer akan menyelesaikan Future-nya dengan status error menggunakan completer.completeError().
+
+2. Kode onPressed()
+Memiliki .catchError() untuk menangani error dari Future.
+
+Dengan ini, pengguna dapat menerima pesan error seperti "An error occurred", dan aplikasi tetap stabil.
+
+📸 Hasil:
+![s6](https://github.com/user-attachments/assets/e6659763-a5cc-4728-a858-9c6152be1061)
+
+
 
 
 
