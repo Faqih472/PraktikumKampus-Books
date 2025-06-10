@@ -59,6 +59,23 @@ Ketika janji ditepati (setelah 5 detik), ambil hasilnya (42) dan tampilkan di la
 ![s5](https://github.com/user-attachments/assets/a08cc6b3-6052-4f2a-aa29-4c9bcb31ce86)
 
 
+SOAL 6
+Oke, ini perbedaan utamanya.
+
+Kode yang baru ini menambahkan penanganan error (error handling).
+
+1.  Kode calculate()
+Sekarang menggunakan blok try-catch.
+Jika terjadi error di dalam try, aplikasi tidak akan crash.
+Sebaliknya, blok catch akan dijalankan, yang akan menyelesaikan "janji" (Future) dengan status gagal menggunakan completer.completeError().
+2.  Kode onPressed()
+Sekarang memiliki blok .catchError().
+Blok ini akan dieksekusi hanya jika "janji" (Future) gagal (karena completer.completeError() dipanggil).
+Ini memungkinkan Anda menampilkan pesan error yang jelas kepada pengguna ("An error occurred") daripada aplikasi macet.
+
+
+![s6](https://github.com/user-attachments/assets/e6659763-a5cc-4728-a858-9c6152be1061)
+
 
 
 
