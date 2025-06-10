@@ -18,8 +18,11 @@ Tambahkan nama panggilan Anda pada judul aplikasi sebagai identitas hasil pekerj
 ✅ Soal 2
 Ambil dan tampilkan data buku dari endpoint berikut:
 
-📸 Hasil:
+📎 URL:
 https://www.googleapis.com/books/v1/volumes/LKLbDwAAQBAJ
+
+📸 Hasil:
+![Screenshot 2025-06-09 144322](https://github.com/user-attachments/assets/78ede47e-05d1-4273-9254-734b064ac76a)
 
 
 
