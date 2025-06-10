@@ -60,7 +60,6 @@ Ketika janji ditepati (setelah 5 detik), ambil hasilnya (42) dan tampilkan di la
 
 
 SOAL 6
-Oke, ini perbedaan utamanya.
 
 Kode yang baru ini menambahkan penanganan error (error handling).
 
