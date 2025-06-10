@@ -44,9 +44,15 @@ class _FuturePageState extends State<FuturePage> {
   }
 
   Future calculate() async {
+    try {
     await Future.delayed(const Duration(seconds : 5));
     completer.complete(42);
+  // throw Exception();
   }
+    catch (_) {
+      completer.completeError({});
+      }
+    }
 
 
   // Method dari Praktikum 1 (tidak digunakan di Praktikum 2)
@@ -88,7 +94,7 @@ class _FuturePageState extends State<FuturePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Soal 5 - Faqih'),
+        title: const Text('Soal 6 - Faqih'),
       ),
       body: Center(
         child: Column(children: [
@@ -101,7 +107,10 @@ class _FuturePageState extends State<FuturePage> {
                 setState(() {
                   result = value.toString();
                 });
+              }).catchError((e) {
+                result = 'An error occurred';
               });
+
               // Kode dari praktikum sebelumnya di-comment
               // setState(() {});
               // getData().then((value) {
