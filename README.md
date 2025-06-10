@@ -92,8 +92,12 @@ Dengan ini, pengguna dapat menerima pesan error seperti "An error occurred", dan
 ![s6](https://github.com/user-attachments/assets/e6659763-a5cc-4728-a858-9c6152be1061)
 
 
+SOAL 7
+
+📸 Hasil:
 
 
+![s7](https://github.com/user-attachments/assets/dd454059-aa2d-4fb7-9ae5-b0742fbaaa37)
 
 
 
