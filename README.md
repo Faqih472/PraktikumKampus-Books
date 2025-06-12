@@ -100,6 +100,43 @@ SOAL 7
 ![s7](https://github.com/user-attachments/assets/dd454059-aa2d-4fb7-9ae5-b0742fbaaa37)
 
 
+SOAL 8
+
+Perbandingan FutureGroup dan Future.wait:
+
+🔹 Langkah 1: Menggunakan FutureGroup
+Pada pendekatan ini, digunakan FutureGroup yang berasal dari package eksternal bernama async. Konsepnya adalah kita dapat menambahkan beberapa proses asynchronous (Future) satu per satu secara dinamis, seiring berjalannya program. Pendekatan ini berguna saat daftar proses asynchronous belum diketahui semuanya di awal. Setelah seluruh proses ditambahkan, kita perlu memanggil close() untuk memberi tahu bahwa tidak akan ada Future lain yang ditambahkan lagi. Setelah itu, hasil dari semua proses dapat diproses secara serentak.
+
+Keunggulan FutureGroup:
+
+Dapat menambahkan proses asynchronous secara bertahap (dinamis).
+
+Lebih fleksibel untuk kebutuhan kompleks, misalnya ketika Future muncul dari perulangan, kondisi tertentu, atau alur logic yang dinamis.
+
+Memberikan kontrol lebih terhadap kapan semua proses dianggap selesai.
+
+Cocok digunakan ketika jumlah atau jenis proses tidak diketahui sejak awal.
+
+Namun, karena bukan bagian dari pustaka inti Dart, penggunaan FutureGroup memerlukan tambahan package eksternal (async) dan import khusus dalam proyek.
+
+🔹 Langkah 4: Menggunakan Future.wait
+Pendekatan ini menggunakan Future.wait, yang merupakan fitur bawaan dari Dart. Di sini, seluruh daftar proses asynchronous harus sudah diketahui sejak awal, kemudian dijalankan secara paralel bersamaan. Hasilnya akan dikembalikan dalam bentuk list setelah semua proses selesai.
+
+Keunggulan Future.wait:
+
+Penulisan lebih sederhana dan lebih langsung (langsung sekaligus).
+
+Cocok digunakan saat semua proses asynchronous sudah tersedia di awal.
+
+Tidak perlu package tambahan karena merupakan bagian dari library inti Dart.
+
+Lebih ringkas dan mudah dipahami, terutama untuk skenario umum.
+
+Namun, kekurangannya adalah tidak bisa menambahkan proses tambahan setelah fungsi dipanggil. Jadi kurang cocok untuk kasus yang memerlukan fleksibilitas.
+
+SOAL 9
+
+
 
 
 
