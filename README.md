@@ -163,6 +163,13 @@ Dibawah ini bukti hasilnya
 ![s10](https://github.com/user-attachments/assets/cac8659b-2e58-4f67-ad0b-19494d43b128)
 
 
+SOAL 11
+
+Tambahkan nama panggilan Anda pada properti title
+"title: const Text('Current Location - Faqih'),"
+
+
+
 
 
 
