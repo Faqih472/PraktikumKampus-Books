@@ -141,6 +141,27 @@ SOAL 9
 ![s9](https://github.com/user-attachments/assets/5a290144-31ca-46d9-b53b-ffb712b04204)
 
 
+SOAL 10
+
+Penjelasan untuk langkah 1:
+Masih sama seperti Soal 9 yaitu menampilkan error delay dengan waktu 2 detik dan menampilkan ('Something terrible happened!') 
+
+Penjelasan untuk langkah 4:
+Apa Hasilnya?
+
+Ketika Anda menjalankan kode ini dan menekan tombol "GO!":
+
+Aplikasi akan menampilkan "Something terrible happened!" di layar setelah sekitar 2 detik.
+Di konsol debug, Anda akan melihat teks "Complete".
+Indicator loading (CircularProgressIndicator) akan muncul sesaat setelah tombol ditekan dan kemudian menghilang setelah 2 detik.
+
+Dibawah ini bukti hasilnya
+
+📸 Hasil:
+
+
+![s10](https://github.com/user-attachments/assets/cac8659b-2e58-4f67-ad0b-19494d43b128)
+
 
 
 
