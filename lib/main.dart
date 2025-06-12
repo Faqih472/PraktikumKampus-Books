@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:http/http.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:async/async.dart'; // Import for FutureGroup
+// import 'package:async/async.dart'; // FutureGroup is not used, so this import can be removed if not needed elsewhere
 
 void main() {
   runApp(const MyApp());
@@ -79,10 +79,9 @@ class _FuturePageState extends State<FuturePage> {
     return 3;
   }
 
-  // Langkah 1: Add the returnFG() method to _FuturePageState
-  // This method uses FutureGroup to run multiple Futures in parallel
+  // This method uses Future.wait to run multiple Futures in parallel
   // and sums their results.
-  Future<void> returnFG() async { // Changed to async since we'll use await
+  Future<void> returnFG() async {
     setState(() {
       result = 'Calculating with Future.wait...'; // Show immediate feedback
     });
@@ -115,7 +114,7 @@ class _FuturePageState extends State<FuturePage> {
     }
   }
 
-
+  // This method demonstrates sequential execution, not used by the GO! button in your current code.
   Future<void> count() async {
     setState(() {
       result = 'Calculating sequentially...';
@@ -129,35 +128,47 @@ class _FuturePageState extends State<FuturePage> {
     });
   }
 
+  // Langkah 1: Add the returnError() method to _FuturePageState
+  Future returnError() async {
+    await Future.delayed(const Duration(seconds: 2));
+    throw Exception('Something terrible happened!');
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Soal 8 - Faqih'),
+        title: const Text('Soal 9 - Faqih'), // Title from previous practicals, can be updated for Soal 9 if needed
       ),
       body: Center(
         child: Column(children: [
           const Spacer(),
           ElevatedButton(
             child: const Text('GO!'),
-            // Langkah 2: Call the returnFG() method when the button is pressed.
+            // Langkah 2: Replace onPressed to call returnError() and handle it
             onPressed: () {
-              returnFG();
-              // Original onPressed code (from previous practicals) is commented out.
-              // getNumber().then((value) {
-              //   setState(() {
-              //     result = value.toString();
-              //   });
-              // }).catchError((e) {
-              //   result = 'An error occurred';
-              // });
+              setState(() {
+                // Clear result and hide indicator when button is pressed for new calculation
+                result = '';
+              });
+              returnError()
+                  .then((value) {
+                setState(() {
+                  result = 'Success';
+                });
+              }).catchError((onError) {
+                setState(() {
+                  result = onError.toString();
+                });
+              }).whenComplete(() => print('Complete'));
             },
           ),
           const Spacer(),
           Text(result),
           const Spacer(),
-          // Display CircularProgressIndicator while calculation is in progress
-          result.startsWith('Calculating') ? const CircularProgressIndicator() : Container(),
+          // Display CircularProgressIndicator while result is empty (indicating it's waiting for async op)
+          result.isEmpty ? const CircularProgressIndicator() : Container(),
           const Spacer(),
         ]),
       ),
