@@ -82,43 +82,40 @@ class _FuturePageState extends State<FuturePage> {
   // Langkah 1: Add the returnFG() method to _FuturePageState
   // This method uses FutureGroup to run multiple Futures in parallel
   // and sums their results.
-  void returnFG() {
+  Future<void> returnFG() async { // Changed to async since we'll use await
     setState(() {
-      result = 'Calculating with FutureGroup...'; // Show immediate feedback
+      result = 'Calculating with Future.wait...'; // Show immediate feedback
     });
-    FutureGroup<int> futureGroup = FutureGroup<int>();
 
-    // Add all Futures to the FutureGroup
-    futureGroup.add(returnOneAsync());
-    futureGroup.add(returnTwoAsync());
-    futureGroup.add(returnThreeAsync());
+    try {
+      // Use Future.wait to run all three Futures concurrently.
+      // It returns a Future<List<int>> which completes when all its
+      // constituent Futures have completed.
+      final List<int> values = await Future.wait<int>([
+        returnOneAsync(),
+        returnTwoAsync(),
+        returnThreeAsync(),
+      ]);
 
-    // Close the FutureGroup to indicate no more Futures will be added.
-    futureGroup.close();
-
-    // Listen for the completion of all Futures in the group.
-    // The .future getter of FutureGroup returns a Future<List<T>>
-    // which completes when all added Futures complete.
-    futureGroup.future.then(((List<int> value) {
       int total = 0;
       // Sum the results from all completed Futures
-      for (var element in value) {
+      for (var element in values) {
         total += element;
       }
+
       // Update the UI with the total sum
       setState(() {
         result = total.toString();
       });
-    })).catchError((e) {
-      // Handle any errors that might occur during the FutureGroup execution
+    } catch (e) {
+      // Handle any errors that might occur during the Future.wait execution
       setState(() {
         result = 'Error: ${e.toString()}';
       });
-    });
+    }
   }
 
-  // The 'count' method from previous practical,
-  // currently not used in favor of returnFG() for Soal 7.
+
   Future<void> count() async {
     setState(() {
       result = 'Calculating sequentially...';
@@ -136,7 +133,7 @@ class _FuturePageState extends State<FuturePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Soal 7 - Faqih'),
+        title: const Text('Soal 8 - Faqih'),
       ),
       body: Center(
         child: Column(children: [
