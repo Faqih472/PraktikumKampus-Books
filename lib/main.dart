@@ -134,12 +134,25 @@ class _FuturePageState extends State<FuturePage> {
     throw Exception('Something terrible happened!');
   }
 
+  // Langkah 4 for Soal 10: Add the handleError() method
+  Future handleError() async {
+    try {
+      await returnError();
+    } catch (error) {
+      setState(() {
+        result = error.toString();
+      });
+    } finally {
+      print('Complete');
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Soal 9 - Faqih'), // Title from previous practicals, can be updated for Soal 9 if needed
+        title: const Text('Soal 10 - Faqih'), // Title from previous practicals, can be updated for Soal 10 if needed
       ),
       body: Center(
         child: Column(children: [
