@@ -2,14 +2,16 @@ import 'dart:async';
 import 'package:http/http.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-// import 'package:async/async.dart'; // FutureGroup is not used, so this import can be removed if not needed elsewhere
+import 'geolocation.dart';
 
 void main() {
   runApp(const MyApp());
+
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -20,10 +22,12 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const FuturePage(),
+      home: const LocationScreen(),
+
     );
   }
 }
+
 
 class FuturePage extends StatefulWidget {
   const FuturePage({super.key});
@@ -134,7 +138,7 @@ class _FuturePageState extends State<FuturePage> {
     throw Exception('Something terrible happened!');
   }
 
-  // Langkah 4 for Soal 10: Add the handleError() method
+  // Langkah 4 for Soal 12: Add the handleError() method
   Future handleError() async {
     try {
       await returnError();
@@ -152,7 +156,7 @@ class _FuturePageState extends State<FuturePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Soal 10 - Faqih'), // Title from previous practicals, can be updated for Soal 10 if needed
+        title: const Text('Soal 12 - Faqih'),
       ),
       body: Center(
         child: Column(children: [
