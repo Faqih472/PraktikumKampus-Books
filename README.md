@@ -136,6 +136,11 @@ Namun, kekurangannya adalah tidak bisa menambahkan proses tambahan setelah fungs
 
 SOAL 9
 
+📸 Hasil:
+
+![s9](https://github.com/user-attachments/assets/5a290144-31ca-46d9-b53b-ffb712b04204)
+
+
 
 
 
