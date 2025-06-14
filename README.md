@@ -208,9 +208,24 @@ Dengan kata lain, FutureBuilder menyediakan pola yang lebih efisien, bersih, dan
 
 📸 Hasil:
 
-![s13](https://github.com/user-attachments/assets/9b59abc8-34b5-438a-987a-0d0a8087738a)
+![s13](https://github.com/user-attachments/assets/f155462a-7c7f-42a8-ab10-c31be7ce2b22)
 
+soal 14
 
+Ya, ada perbedaan UI yang signifikan, terutama dalam skenario di mana Future mengalami kegagalan atau error. 
+
+Sebelum Langkah 5 (tanpa penanganan error eksplisit di ConnectionState.done):
+Jika getPosition() mengalami error (misalnya, karena masalah GPS atau izin yang belum ditangani sepenuhnya), ketika FutureBuilder mencapai ConnectionState.done, snapshot.hasError akan bernilai true. Namun, karena tidak ada penanganan eksplisit untuk snapshot.hasError pada titik ini, FutureBuilder akan mencoba menampilkan Text(snapshot.data.toString()). Ini dapat menyebabkan tampilan yang tidak informatif (misalnya, null jika snapshot.data kosong) atau bahkan crash aplikasi jika snapshot.data benar-benar null dan Anda mencoba memanggil .toString() padanya.
+
+Setelah Langkah 5 (dengan penanganan error):
+Dengan penambahan kode dari Langkah 5, ketika Future mencapai ConnectionState.done, ia akan terlebih dahulu memeriksa apakah snapshot.hasError bernilai true.  Jika ada error, UI akan menampilkan pesan yang jelas dan ramah pengguna: "Something terrible happened!".  Ini memberikan umpan balik yang lebih baik kepada pengguna tentang apa yang salah, dibandingkan dengan tampilan yang kosong atau crash.
+
+Mengapa demikian?
+Perbedaan ini terjadi karena Langkah 5 secara eksplisit menambahkan logika penanganan error di dalam FutureBuilder ketika Future telah selesai (ConnectionState.done).  Sebelum Langkah 5, kode hanya berasumsi bahwa Future akan selalu berhasil dan memiliki data saat selesai.  Dengan penambahan if (snapshot.hasError) { return Text('Something terrible happened!'); }, kita sekarang secara proaktif memeriksa dan menampilkan pesan error kepada pengguna jika Future gagal, membuat aplikasi lebih tangguh dan informatif. 
+
+📸 Hasil:
+
+![s14](https://github.com/user-attachments/assets/5187a1f4-752b-4ee7-8304-9129f4f524c8)
 
 
 
