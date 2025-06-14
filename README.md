@@ -169,6 +169,27 @@ Tambahkan nama panggilan Anda pada properti title
 "title: const Text('Current Location - Faqih'),"
 
 
+SOAL 12
+
+🔹 Tambahkan delay di sini agar animasi loading terlihat
+await Future.delayed(const Duration(seconds: 3));
+
+🔹 Apakah Anda mendapatkan koordinat GPS ketika run di browser? Mengapa demikian?
+
+Anda tidak akan mendapatkan koordinat GPS ketika menjalankan aplikasi Flutter di browser (web) menggunakan plugin geolocator.
+
+Mengapa demikian?
+Plugin geolocator dirancang untuk berinteraksi dengan API lokasi asli (native) dari perangkat seluler (seperti Android dan iOS) atau desktop. Browser memiliki API lokasi sendiri (disebut Geolocation API, bagian dari JavaScript), tetapi plugin geolocator tidak secara langsung terintegrasi penuh atau mendukung semua fungsi API browser tersebut. Oleh karena itu, kemampuan untuk mengakses lokasi melalui browser dari aplikasi Flutter yang dikompilasi untuk web akan sangat terbatas atau seringkali tidak berfungsi sama sekali melalui plugin geolocator.
+
+Dokumen praktikum Anda juga menyarankan untuk menjalankan project di device atau emulator (bukan browser) untuk hasil yang akurat.
+
+📸 Hasil:
+
+
+![s12](https://github.com/user-attachments/assets/3cf261fb-731e-4c07-bcf4-d22738fc7ef0)
+
+
+
 
 
 
