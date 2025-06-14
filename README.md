@@ -227,6 +227,21 @@ Perbedaan ini terjadi karena Langkah 5 secara eksplisit menambahkan logika penan
 
 ![s14](https://github.com/user-attachments/assets/5187a1f4-752b-4ee7-8304-9129f4f524c8)
 
+soal 15
+Soal 15: Tambahkan nama panggilan Anda pada tiap properti title sebagai identitas pekerjaan Anda.
+Jawaban:
+Anda bisa melihatnya langsung pada kode di atas pada bagian AppBar dari NavigationFirst dan NavigationSecond. Saya telah menambahkan "- Faqih" ke judul:
+
+title: const Text('Navigation First Screen - Faqih')
+Untuk mengubah warna tema favorit, Anda bisa mengganti nilai Colors.blue.shade700 pada variabel color di _NavigationFirstState dan juga warna-warna yang dikirimkan dari NavigationSecond. 
+
+Langkah 4 & 5: Buat file baru navigation_second.dart dan Isi Kodenya
+Buat file baru bernama navigation_second.dart di folder lib proyek Anda, lalu masukkan kode berikut:
+
+Edit main.dart ubah home ke navigation
+
+
+
 
 
 
