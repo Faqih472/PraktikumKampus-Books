@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:future_demo/navigation_second.dart'; // Pastikan import ini benar setelah membuat navigation_second.dart
+import 'navigation_second.dart'; // Pastikan import ini benar setelah membuat navigation_second.dart
 
 class NavigationFirst extends StatefulWidget {
   const NavigationFirst({super.key});
