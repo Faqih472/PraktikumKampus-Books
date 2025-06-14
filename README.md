@@ -261,7 +261,38 @@ Update UI: Nilai color yang dikembalikan dari NavigationSecond diterima oleh awa
 
 
 📸 Hasil:
-![Uploading s16.gif…]()
+![s16](https://github.com/user-attachments/assets/686d44c1-f5f2-46b6-948a-54f41ca00ee5)
+
+
+soal 17
+
+Cobalah klik setiap button, apa yang terjadi? Mengapa demikian? Gantilah 3 warna pada langkah 3 dengan warna favorit Anda! 
+
+Jawaban:
+
+Ketika Anda mengklik tombol "Change Color" di layar utama:
+
+Sebuah AlertDialog (kotak dialog pop-up) akan muncul di tengah layar. Dialog ini memiliki judul ("Very important question"), konten teks ("Please choose a color"), dan tiga tombol teks ("Red", "Green", "Blue"). 
+
+Ketika Anda mengklik salah satu tombol warna ("Red", "Green", atau "Blue") di dalam AlertDialog:
+
+AlertDialog akan segera hilang (tertutup).
+Warna latar belakang (backgroundColor) dari layar utama (NavigationDialogScreen) akan berubah menjadi warna yang sesuai dengan tombol yang Anda pilih di dalam dialog. 
+
+Mengapa demikian?
+
+Menampilkan Dialog Asynchronous: Metode _showColorDialog adalah fungsi async yang menggunakan await showDialog(). Fungsi showDialog() menampilkan dialog dan mengembalikan sebuah Future. await akan menahan eksekusi kode selanjutnya di _showColorDialog sampai dialog tersebut ditutup. 
+Mengembalikan Nilai dari Dialog: Di dalam AlertDialog, setiap TextButton memanggil Navigator.pop(context, color). Fungsi Navigator.pop() tidak hanya menutup widget yang saat ini aktif (dalam hal ini, AlertDialog) tetapi juga dapat mengirimkan nilai kembali ke Future yang sedang ditunggu oleh showDialog(). 
+Memperbarui UI: Nilai Color yang dikembalikan dari AlertDialog melalui Navigator.pop() ditangkap oleh variabel returnedColor di _showColorDialog. Setelah nilai ini diterima, setState(() {}); dipanggil. Ini memicu _NavigationDialogScreenState untuk membangun ulang widget-nya, dan karena backgroundColor dari Scaffold terikat pada variabel color (yang baru saja diperbarui), latar belakang layar utama akan berubah. 
+Perubahan Warna Favorit:
+Dalam kode navigation_dialog.dart di atas, saya telah mengganti warna asli dengan contoh warna favorit:
+
+Red menjadi Colors.pink.shade700
+Green menjadi Colors.lime.shade700
+Blue menjadi Colors.deepPurple.shade700
+
+📸 Hasil:
+![s17](https://github.com/user-attachments/assets/6ade0bcd-8779-4508-8f74-baa941e7a88b)
 
 
 
