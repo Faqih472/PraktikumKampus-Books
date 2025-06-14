@@ -227,9 +227,11 @@ Perbedaan ini terjadi karena Langkah 5 secara eksplisit menambahkan logika penan
 
 ![s14](https://github.com/user-attachments/assets/5187a1f4-752b-4ee7-8304-9129f4f524c8)
 
-soal 15
-Soal 15: Tambahkan nama panggilan Anda pada tiap properti title sebagai identitas pekerjaan Anda.
-Jawaban:
+
+Soal 15
+
+Tambahkan nama panggilan Anda pada tiap properti title sebagai identitas pekerjaan Anda.
+
 Anda bisa melihatnya langsung pada kode di atas pada bagian AppBar dari NavigationFirst dan NavigationSecond. Saya telah menambahkan "- Faqih" ke judul:
 
 title: const Text('Navigation First Screen - Faqih')
@@ -240,6 +242,26 @@ Buat file baru bernama navigation_second.dart di folder lib proyek Anda, lalu ma
 
 Edit main.dart ubah home ke navigation
 
+Soal 16
+
+Cobalah klik setiap button, apa yang terjadi? Mengapa demikian? 
+
+Ketika Anda mengklik tombol "Change Color" di Navigation First Screen:
+
+Aplikasi akan melakukan navigasi ke Navigation Second Screen. Ini terjadi karena _navigateAndGetColor memanggil Navigator.push untuk mendorong rute baru (NavigationSecond) ke atas tumpukan navigasi. 
+Ketika Anda mengklik salah satu tombol warna ("Red", "Green", atau "Blue") di Navigation Second Screen:
+
+Navigation Second Screen akan tertutup dan Anda akan kembali ke Navigation First Screen.
+Warna latar belakang (backgroundColor) dari Navigation First Screen akan berubah sesuai dengan warna tombol yang Anda pilih di Navigation Second Screen. 
+Mengapa demikian?
+
+Navigasi dan Pengembalian Data: Ini terjadi karena metode _navigateAndGetColor di NavigationFirst menggunakan await Navigator.push().  Metode Navigator.push() mengembalikan sebuah Future yang akan selesai (resolve) ketika layar yang didorong (NavigationSecond) ditutup (pop) dari tumpukan navigasi.
+Mengembalikan Nilai: Di NavigationSecond, ketika Anda mengklik salah satu tombol warna, Navigator.pop(context, color) dipanggil. Fungsi pop tidak hanya menutup layar saat ini tetapi juga memungkinkan Anda untuk mengirimkan nilai kembali ke layar sebelumnya (dalam kasus ini, objek Color). 
+Update UI: Nilai color yang dikembalikan dari NavigationSecond diterima oleh await Navigator.push() di _navigateAndGetColor. Nilai ini kemudian ditetapkan ke variabel color di _NavigationFirstState. Akhirnya, setState(() {}); dipanggil, yang memberitahu Flutter untuk membangun ulang widget NavigationFirst, dan karena backgroundColor dari Scaffold terikat pada variabel color, UI akan diperbarui dengan warna yang baru dipilih. 
+
+
+📸 Hasil:
+![Uploading s16.gif…]()
 
 
 
