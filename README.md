@@ -188,7 +188,27 @@ Dokumen praktikum Anda juga menyarankan untuk menjalankan project di device atau
 
 ![s12](https://github.com/user-attachments/assets/3cf261fb-731e-4c07-bcf4-d22738fc7ef0)
 
+SOAL 13
 
+Perbedaan UI:
+Secara visual, perbedaan UI mungkin tidak langsung terlihat signifikan bagi pengguna akhir jika kedua praktikum (yang menggunakan setState secara eksplisit vs. yang menggunakan FutureBuilder) diimplementasikan dengan benar. Keduanya akan menampilkan CircularProgressIndicator saat fetching data, lalu menampilkan teks posisi setelah data tersedia.
+
+Namun, ada perbedaan mendasar dalam cara UI diperbarui dan dikelola:
+
+Praktikum sebelumnya (tanpa FutureBuilder): Anda secara manual memanggil setState() di dalam .then() dari Future untuk memperbarui variabel myPosition dan memicu rebuild UI. Ini berarti Anda secara eksplisit mengelola state dan memperbarui UI.
+Praktikum ini (dengan FutureBuilder): FutureBuilder mengelola state Future-nya sendiri. Anda tidak perlu memanggil setState() secara manual untuk memperbarui UI ketika Future berubah status (misalnya, dari waiting ke done). FutureBuilder akan secara otomatis membangun ulang bagian UI yang dibutuhkan berdasarkan ConnectionState dari Future yang diberikan.
+
+Mengapa demikian?
+
+Perbedaan ini terjadi karena penggunaan widget FutureBuilder. FutureBuilder dirancang khusus untuk memudahkan manajemen Future bersamaan dengan pembaruan UI. Ia memiliki status Future sendiri , sehingga Anda dapat mengabaikan penggunaan setState untuk trigger rebuild UI ketika Future diperbarui.
+
+
+
+Dengan kata lain, FutureBuilder menyediakan pola yang lebih efisien, bersih, dan reaktif untuk menampilkan data dari Future karena ia secara otomatis menangani berbagai status koneksi (waiting, done, error) dan membangun ulang UI yang sesuai, mengurangi boilerplate code yang terkait dengan manajemen setState manual.
+
+📸 Hasil:
+
+![s13](https://github.com/user-attachments/assets/9b59abc8-34b5-438a-987a-0d0a8087738a)
 
 
 
