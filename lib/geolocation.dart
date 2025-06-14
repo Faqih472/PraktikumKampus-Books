@@ -39,14 +39,16 @@ class _LocationScreenState extends State<LocationScreen> {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const CircularProgressIndicator();
             } else if (snapshot.connectionState == ConnectionState.done) {
-              // Langkah 5: Tambah handling error
               if (snapshot.hasError) {
-                return const Text('Something terrible happened!'); // Menggunakan const untuk Text
+                return Text('Something terrible happened!');
               }
               return Text(snapshot.data.toString());
+
             } else {
+
               return const Text(''); // Menggunakan const untuk Text
             }
+
           },
         ),
       ),
