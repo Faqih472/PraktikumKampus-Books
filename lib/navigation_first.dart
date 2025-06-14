@@ -9,7 +9,7 @@ class NavigationFirst extends StatefulWidget {
 }
 
 class _NavigationFirstState extends State<NavigationFirst> {
-  Color color = Colors.blue.shade700; // Warna tema awal
+  Color color = Colors.redAccent.shade700; // Warna tema awal
 
   @override
   Widget build(BuildContext context) {
